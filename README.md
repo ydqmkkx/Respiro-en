@@ -11,6 +11,9 @@ Official PyTorch implementation of the paper: \
 
 ## Introduction
 
-This model is developed for detecting the positions of breath sounds in speech utterances.
+This model is developed for detecting the positions of breath sounds in speech utterances. \
+It was trained using **[LibriTTS-R](https://arxiv.org/abs/2305.18802)** corpus.
+
+<img src="model.pdf" width="75%"/>
 
 ## Get Started
