@@ -44,9 +44,9 @@ model.load_state_dict(checkpoint["model"])
 model.eval()
 
 # Examples. These files are from LibriTTS-R corpus
-wav_path = "train-clean-100_19_198_000010_000003.wav"
-#wav_path = "train-clean-360_14_208_000001_000000.wav"
-#wav_path = "train-other-500_20_205_000002_000002.wav"
+wav_path = "samples/train-clean-100_19_198_000010_000003.wav"
+#wav_path = "samples/train-clean-360_14_208_000001_000000.wav"
+#wav_path = "samples/train-other-500_20_205_000002_000002.wav"
 wav, sr = librosa.load(wav_path, sr=16000)
 feature, length = feature_extractor(wav)
 feature, length = feature.to(device), length.to(device)
@@ -104,7 +104,7 @@ model.eval()
 
 detector = BreathDetector(model) # Args: model, device=None
 
-wav_path = "train-clean-100_19_198_000010_000003.wav"
+wav_path = "samples/train-clean-100_19_198_000010_000003.wav"
 tree = detector(wav_path) # Args: wav_path, threshold=0.064, min_length=20
 print(tree)
 '''
