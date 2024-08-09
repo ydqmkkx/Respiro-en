@@ -15,6 +15,19 @@ It was trained using **[LibriTTS-R](https://arxiv.org/abs/2305.18802)** corpus.
 
 <img src="model.png" width="50%"/>
 
+
+## Environment
+The version requirements for Python libraries are not strict, only `torch` and `torchaudio` need to be above version 2.0. 
+Our configuration:
+```
+torch == 2.2.2
+torchaudio == 2.2.2
+librosa == 0.10.0
+numpy == 1.23.0
+intervaltree == 3.1.0
+```
+
+
 ## Get Started (detailed)
 
 ```python
@@ -76,8 +89,9 @@ from IPython.display import Audio
 Audio(data=wav[int((start*0.01)*sr):int((end*0.01)*sr)], rate=sr) 
 ```
 
+
 ## Get Started (quick)
-We have assembled the above detection process into a class for ease of use:
+We have assembled the above detection process into `BreathDetector` for ease of use:
 ```python
 import torch
 from modules import DetectionNet, BreathDetector
@@ -90,9 +104,27 @@ model.eval()
 
 detector = BreathDetector(model) # Args: model, device=None
 
-detector("train-clean-100_19_198_000010_000003.wav") # Args: wav_path, threshold=0.064, min_length=20
+wav_path = "train-clean-100_19_198_000010_000003.wav"
+tree = detector(wav_path) # Args: wav_path, threshold=0.064, min_length=20
+print(tree)
 '''
 output:
 IntervalTree([Interval(2.29, 2.81), Interval(8.11, 8.36)])
+'''
+```
+We used `IntervalTree`, which can identify overlapping segments in the tree with a given interval:
+```python
+print(tree[2.6:5.2])
+'''
+output:
+{Interval(2.29, 2.81)}
+'''
+```
+The `IntervalTree` can be converted into a list:
+```python
+print(sorted(tree))
+'''
+output:
+[Interval(2.29, 2.81), Interval(8.11, 8.36)]
 '''
 ```
