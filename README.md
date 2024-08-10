@@ -20,11 +20,11 @@ It was trained using **[LibriTTS-R](https://arxiv.org/abs/2305.18802)** corpus.
 The version requirements for Python libraries are not strict, only `torch` and `torchaudio` need to be above version 2.0. 
 Our configuration:
 ```
-torch == 2.2.2
-torchaudio == 2.2.2
-librosa == 0.10.0
-numpy == 1.23.0
-intervaltree == 3.1.0
+torch==2.2.2
+torchaudio==2.2.2
+librosa==0.10.0
+numpy==1.23.0
+intervaltree==3.1.0
 ```
 
 
