@@ -11,7 +11,9 @@ Official PyTorch implementation of the paper: \
 ## Introduction
 
 This model is developed for detecting the positions of breath sounds in speech utterances. \
-It was trained using **[LibriTTS-R](https://arxiv.org/abs/2305.18802)** corpus.
+We call it **Respiro-en** temporarily.
+It was trained using **[LibriTTS-R](https://arxiv.org/abs/2305.18802)** corpus. \
+The manually annotated validation & test sets are available in the `datasets` folder.
 
 <img src="model.png" width="50%"/>
 
