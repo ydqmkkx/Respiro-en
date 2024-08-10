@@ -16,7 +16,10 @@ It was trained using **[LibriTTS-R](https://arxiv.org/abs/2305.18802)** corpus.
 <img src="model.png" width="50%"/>
 
 
-## Environment
+## Install & Environment
+To clone the repository, make sure you have `git lfs` installed to get the model's weight. \
+You can also download the weight on <a href='[https://huggingface.co/DongYANG/Respiro-en](https://huggingface.co/DongYANG/Respiro-en/tree/main)'><img src='https://img.shields.io/badge/🤗-yellow'></a> (`respiro-en.pt`).
+
 The version requirements for Python libraries are not strict, only `torch` and `torchaudio` need to be above version 2.0. 
 Our configuration:
 ```
