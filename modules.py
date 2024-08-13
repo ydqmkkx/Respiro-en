@@ -15,7 +15,7 @@ def zcr_extractor(wav, win_length, hop_length):
     for i in range(num_frames):
         start = i * hop_length
         end = start + win_length
-        zcr = np.abs(wav[start+1:end]-wav[start:end-1])
+        zcr = np.abs(np.sign(wav[start+1:end])-np.sign(wav[start:end-1]))
         zcr = np.sum(zcr) * 0.5 / win_length
         zcrs[i] = zcr
     return zcrs.astype(np.float32)
